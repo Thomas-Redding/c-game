@@ -12,9 +12,9 @@ You can test the app by simply running TestApp/Contents/MacOS/game; however, if 
 
 
 
----- Understanding the Code ----
+## Understanding the Code
 
--- Overview --
+### Overview
 The principle insight here is that singleplayer games are just special cases of multiplayer games, so the framework treats the game as always being multiplayer. Therefore, there are two important threads, the client's and the server's.
 
 We start in main(), which starts three threads:
@@ -25,7 +25,7 @@ We start in main(), which starts three threads:
 The three threads communicate through a combination of sockets and two shared objects. Periodically, various classes on the client side reference NetworkClock, which is used to help perform lag compensation. We're going to ignore this Network clock and the 3rd thread (which are both relatively simple) and focus on the client and main server threads.
 
 
--- Client --
+### Client
 The client side consists of a loop that almost exlusively calls methods in the Client class. These methods consist of
 1. a variety of methods to respond to user input (mouse moves, key presses, etc.)
 2. draw() - which draws to the screen
@@ -47,6 +47,6 @@ The View and SystemsHandler classes are the ones you will be working the most wi
 SystemsHandler is where the vast majority of your coding will take place. Once you provide the methods for modifying Entities given user input and world-interaction (AI, physics, etc.), then the lag compensation methods working magically in the background will take care of the rest.
 
 
--- Server --
+### Server
 
 The server simply sets up the game and then runs magical lag compensation. Implementing SystemsHandler will automatically update your server code too.
