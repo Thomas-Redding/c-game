@@ -1,6 +1,6 @@
 # c-game
 
-# Set Up
+## Set Up
 
 This is a um... game in C++ using SFML. I'd recommend ignoring this repo, because I have absolutely no idea whether/where I'll be going from here. So far, the main accomplishment is a LAN multiplayer lag compensation framework, which *should* make a wide variety of multiplayer 2d games easier to make.
 
