@@ -15,16 +15,16 @@ SystemsHandler::SystemsHandler(bool isServerSide) {
 }
 
 void SystemsHandler::setupEntities(Entities *entities, std::string launchDetails) {
+	std::cout << "setupEntities() " << launchDetails << std::endl;
 	std::vector<std::string> launchDetailsVector = util::split(launchDetails, ';');
 	if(launchDetailsVector.size() < 2) {
 		std::cout << "Launch Details From Server Ill-Formated\n";
 		return;
 	}
 
-	/*
 	std::string line;
 	std::string contents;
-	std::ifstream myfile (resourcePath() + launchDetailsVector[0] + ".txt");
+	std::ifstream myfile (resourcePath() + "maps/" + launchDetailsVector[0] + ".txt");
 	if (myfile.is_open()) {
 		while(getline(myfile,line)) {
 			contents += line;
@@ -38,7 +38,6 @@ void SystemsHandler::setupEntities(Entities *entities, std::string launchDetails
 	}
 
 	entities->map.loadFromString(contents);
-	*/
 }
 
 void SystemsHandler::update(Entities *entities, std::deque<InputState> *inputStates, long startTime, long endTime, int id) {
@@ -63,6 +62,7 @@ std::string SystemsHandler::entitiesToString(Entities *entities, sf::IpAddress i
 		rtn += ",";
 		rtn += std::to_string(entities->soldiers[i].health);
 	}
+	std::cout << "entitiesToString() " << rtn << std::endl;
 	return rtn;
 }
 
