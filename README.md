@@ -10,7 +10,7 @@ You can test the app by simply running TestApp/Contents/MacOS/game; however, if 
 
 ## Overview of Code
 
-The principle insight here is that singleplayer games are just special cases of multiplayer games, so the framework treats the game as always being multiplayer. Therefore, there are two important threads, the client's and the server's.
+The principle insight here is that singleplayer games are just special cases of multiplayer games, so the framework treats the game as always being multiplayer. This gives us a very significant advantage: you can write code once and it works for both singleplayer and multiplayer, and both server and client side.
 
 We start in main(), which starts three threads:
 1. the main thread itself, which simply runs the client's side
